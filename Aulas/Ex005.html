@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usando DOM</title>
+    <style>
+        body
+        {
+            background-color: rgb(255, 0, 208);
+            font: normal 20pt arial;
+        }
+    </style>
+</head>
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>AAAAAAHHHH <strong>DOOOOOOOOMMMM</strong></p>
+    <div id="msg">Clique em mim</div>  <!--criado um id para DIV-->
+
+    <br>
+
+    <script>
+        //window.document.write('Olá, imundo!') -> arvore
+        //window.document.write(window.navigator.appName)
+
+        var p1 = window.document.getElementsByTagName('p')[1] 
+        var corpo = window.document.body
+        var d=window.document.getElementById('msg') //pego qualquer lemento para editar durante meu script
+
+        window.document.write(`esta assim: <strong>${p1.innerText}</strong>`)
+
+        p1.style.color = 'yellow' // a arvore serve para toda a composição da janela, html, css e script
+
+        corpo.style.background = 'rgb(255,0,255)'
+
+        //window.alert(p1.innerHTML) //innerHTML mostra o text com formatação
+
+        //d.style.background = 'white'
+
+        var b1 = window.document.querySelector('div#msg')
+
+        b1.style.background ='white'
+    </script>
+</body>
+</html>
