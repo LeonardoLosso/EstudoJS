@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relogio</title>
+</head>
+<style>
+    body
+    {
+        font: normal 18pt arial;
+        color: aliceblue;
+        background-color: black;
+    }
+    h1
+    {
+        margin-left: 70px;/*Margem da pagina*/
+        background-color: green;
+        width: 165px;
+    }
+    h2
+    {
+        color: palevioletred;
+        margin-left: 70px;
+    }
+</style>
+<body onload="setInterval('atualizar()', 1000)"> <!--RELOAD DA PG-->
+    <h1 id="hr"></h1>
+    <h2 id="msg"></h2>
+
+    <script>
+        var hr = window.document.querySelector('h1#hr')
+        var msg = document.querySelector('h2#msg')
+
+        var agora = new Date()
+        var hora = agora.getHours()
+        var minuto = agora.getMinutes()
+        var segundo = agora.getSeconds()
+        
+        hr.innerHTML = `${hora}:${minuto}:${segundo}` 
+        
+        if(hora<=12 && hora>5)
+        {
+            msg.innerHTML = ('Bom Dia')
+        }
+        else if(hora>12 && hora<=18)
+        {
+            msg.innerHTML = ('Boa Tarde')
+        }
+        else
+        {
+            msg.innerHTML = ('Boa Noite')
+        }
+        
+        function atualizar() //func de RELOAD
+        {
+            window.location.reload()
+        }
+
+    </script>
+</body>
+</html>
