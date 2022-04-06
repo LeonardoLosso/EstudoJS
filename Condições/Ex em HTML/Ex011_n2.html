@@ -17,30 +17,71 @@
     {
         margin-left: 70px;/*Margem da pagina*/
         background-color: green;
-        width: 165px;
+        width: 193px;
     }
     h2
     {
         color: palevioletred;
         margin-left: 70px;
     }
+    p
+    {
+        margin-left: 120px;
+    }
 </style>
 <body onload="setInterval('atualizar()', 1000)"> <!--RELOAD DA PG-->
     <h1 id="hr"></h1>
+    <p id="dia"></p>
     <h2 id="msg"></h2>
 
     <script>
         var hr = window.document.querySelector('h1#hr')
         var msg = document.querySelector('h2#msg')
+        var day = document.getElementById('dia')
 
         var agora = new Date()
         var hora = agora.getHours()
         var minuto = agora.getMinutes()
         var segundo = agora.getSeconds()
+        var dia = agora.getDay()
         
         hr.innerHTML = `${hora}:${minuto}:${segundo}` 
+
+        switch (dia) //dia da semana
+        {
+            case 0:
+                day.innerHTML = ('Segunda')
+            break
+
+            case 1:
+                day.innerHTML = ('Segunda')
+            break
+
+            case 2:
+                day.innerHTML = ('Terça')
+            break   
+            
+            case 3:
+                day.innerHTML = ('Quarta')
+            break
+
+            case 4:
+                day.innerHTML = ('Quinta')
+            break
+
+            case 5:
+                day.innerHTML = ('Sexta')
+            break
+
+            case 6:
+                day.innerHTML = ('Sabado')
+            break
+
+            default:
+                day.innerHTML = ('Erro ao encontrar o dia')
+        }
         
-        if(hora<=12 && hora>5)
+        if(hora<=12 && hora>5) //mensagem 
         {
             msg.innerHTML = ('Bom Dia')
         }
@@ -52,7 +93,7 @@
         {
             msg.innerHTML = ('Boa Noite')
         }
-        
+
         function atualizar() //func de RELOAD
         {
             window.location.reload()
